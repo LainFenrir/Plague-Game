@@ -9,8 +9,9 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func physics_process(delta: float) -> void:
-	_listen_state_change()
+	_parent.velocity = _parent.horizontal_movement(delta,_parent.velocity,_parent.max_speed,_parent.get_move_direction(),_parent.time_for_max_speed)
 	_parent.physics_process(delta)
+	_listen_state_change()
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -23,7 +24,10 @@ func exit() -> void:
 
 ########## Main Methods #############	
 
-
+func run():
+	#TODO:REFACTOR ACTIONS TO BE CONFINED IN THEIR STATES
+	pass
+	
 func _listen_state_change() -> void:
 	if owner.is_on_floor():
 		if _parent.get_move_direction() == 0.0:

@@ -9,6 +9,7 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func physics_process(delta: float) -> void:
+	idle_around()
 	_listen_state_change()
 	_parent.physics_process(delta)
 
@@ -22,6 +23,10 @@ func exit() -> void:
 
 
 ######### Main Actions #########
+
+func idle_around():
+	#TODO:REFACTOR ACTIONS TO BE CONFINED IN THEIR STATES
+	_parent.velocity.x = 0.0 
 
 
 func _listen_state_change() -> void:
