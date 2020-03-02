@@ -1,17 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Test/TestRoom.tres" type="TileSet" id=2]
+[ext_resource path="res://src/Test/test_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://src/Systems/Interact/Teleport/Teleporter.tscn" type="PackedScene" id=3]
 
 [node name="TestRoom" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 55.7097, 19.7079 )
+collision_mask = 6
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 15.2797, 46.1712 )
 tile_set = ExtResource( 2 )
-cell_size = Vector2( 32, 32 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 16, 0, 0, 0, 0 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 262169, 0, 0, 262170, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0 )
+tile_data = PoolIntArray( 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 262158, 1, 0, 262159, 1, 0, 262169, 0, 0, 262170, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327694, 1, 0, 327695, 1, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 393230, 1, 0, 393231, 1, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0 )
+
+[node name="Teleporter" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256.122, 147.018 )
+next_scene = "test2"
+
+[node name="Teleport" parent="Teleporter/Actions" index="0"]
+next_scene = "test2"
+
+[editable path="Teleporter"]

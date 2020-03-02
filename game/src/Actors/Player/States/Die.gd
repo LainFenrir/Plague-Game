@@ -1,5 +1,5 @@
-extends State
-# Dummy script for easy creation of new states
+extends PlayerState
+# Interact state responsible for all interactions
 
 ######### Interface Methods #########
 
@@ -10,10 +10,8 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
 	_parent.physics_process(delta)
 
-
 func process(delta:float)->void:
 	pass
-
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)

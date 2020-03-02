@@ -24,6 +24,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state.physics_process(delta)
 
+func _process(delta:float)->void:
+	state.process(delta)
 
 func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 	if not has_node(target_state_path):

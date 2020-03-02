@@ -9,10 +9,12 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func physics_process(delta: float) -> void:
-	_parent.velocity = _parent.horizontal_movement(delta,_parent.velocity,_parent.max_speed,_parent.get_move_direction(),_parent.time_for_max_speed)
+	owner.velocity = _parent.horizontal_movement(delta,owner.velocity,owner.max_speed,get_move_direction())
 	_parent.physics_process(delta)
 	_listen_state_change()
 
+func process(delta:float)->void:
+	pass
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)
@@ -30,7 +32,7 @@ func run():
 	
 func _listen_state_change() -> void:
 	if owner.is_on_floor():
-		if _parent.get_move_direction() == 0.0:
+		if get_move_direction() == 0.0:
 			_state_machine.transition_to(states.idle)
 	else:
 		_state_machine.transition_to(states.air)

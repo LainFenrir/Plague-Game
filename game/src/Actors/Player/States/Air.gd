@@ -18,11 +18,15 @@ func physics_process(delta: float) -> void:
 	if is_jumping:
 		self.jump(delta)
 	self.fall(delta)
-	if _parent.velocity.y <= 0:
+	if owner.velocity.y <= 0:
 		self._listen_state_change()
+	if owner.air_move:
+		owner.velocity = _parent.horizontal_movement(delta,owner.velocity,owner.max_speed,get_move_direction())
 
 	_parent.physics_process(delta)
 
+func process(delta:float)->void:
+	pass
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)
@@ -41,8 +45,8 @@ func exit() -> void:
 
 func jump(delta: float):
 	var new_velocity :float 
-	new_velocity = _parent.jump_force
-	_parent.velocity.y = new_velocity
+	new_velocity = owner.jump_force
+	owner.velocity.y = new_velocity
 	is_jumping = false
 
 	
@@ -51,14 +55,14 @@ func jump(delta: float):
 func fall(delta: float):
 	var new_velocity :float 
 	if released_jump:
-		if _parent.velocity.y <0: 
+		if owner.velocity.y <0: 
 			new_velocity = 0.0
-			_parent.velocity.y = new_velocity
+			owner.velocity.y = new_velocity
 		released_jump=false
 
 
 
 func _listen_state_change() -> void:
 	if owner.is_on_floor():
-		var target_state: String = states.idle if _parent.get_move_direction() == 0.0 else states.run
+		var target_state: String = states.idle if get_move_direction() == 0.0 else states.run
 		_state_machine.transition_to(target_state)
