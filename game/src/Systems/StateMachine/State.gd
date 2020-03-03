@@ -20,10 +20,12 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
 	pass
 
+
 #virtual method
-func process(delta:float)->void:
+func process(delta: float) -> void:
 	pass
-	
+
+
 #virtual method
 func enter(msg: Dictionary = {}) -> void:
 	pass

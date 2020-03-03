@@ -13,8 +13,10 @@ func physics_process(delta: float) -> void:
 	_listen_state_change()
 	_parent.physics_process(delta)
 
-func process(delta:float)->void:
+
+func process(delta: float) -> void:
 	pass
+
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)
@@ -26,9 +28,10 @@ func exit() -> void:
 
 ######### Main Actions #########
 
+
 func idle_around():
 	#TODO:REFACTOR ACTIONS TO BE CONFINED IN THEIR STATES
-	owner.velocity.x = 0.0 
+	owner.velocity.x = 0.0
 
 
 func _listen_state_change() -> void:

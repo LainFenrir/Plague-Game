@@ -1,8 +1,8 @@
 extends PlayerState
 # Interact state responsible for all interactions
 
-
 ######### Interface Methods #########
+
 
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel"):
@@ -13,17 +13,20 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
 	pass
 
-func process(delta:float)->void:
+
+func process(delta: float) -> void:
 	pass
 
+
 func enter(msg: Dictionary = {}) -> void:
-	Signals.connect("interaction_finished",self,"finish_interaction")
+	Signals.connect("interaction_finished", self, "finish_interaction")
 	Signals.emit_signal("interaction_start")
 	pass
 
 
 func exit() -> void:
 	pass
+
 
 ####### Signals #######
 func finish_interaction():

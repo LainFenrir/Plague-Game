@@ -18,7 +18,6 @@ tile_data = PoolIntArray( 393216, 1, 0, 393217, 1, 0, 458752, 1, 0, 458753, 1, 0
 
 [node name="Teleporter" parent="." instance=ExtResource( 3 )]
 position = Vector2( 16.2901, 131.135 )
-next_scene = "test1"
 
 [node name="Teleport" parent="Teleporter/Actions" index="0"]
 next_scene = "test1"

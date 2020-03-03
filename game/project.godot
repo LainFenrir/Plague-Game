@@ -50,7 +50,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot Wild Jam"
+config/name="Plague Doctor"
 run/main_scene="res://src/Test/TestRoom.tscn"
 config/icon="res://icon.png"
 

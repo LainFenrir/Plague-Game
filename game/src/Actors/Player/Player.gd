@@ -10,23 +10,22 @@ export var jump_force := -400
 export var air_move = true
 
 var velocity := Vector2.ZERO
+
+
 ######## Built-in Functions ##########
-func _ready()->void:
-	
+func _ready() -> void:
 	pass
 
-func _physics_process(delta:float)-> void:
+
+func _physics_process(delta: float) -> void:
 	print(state_machine.state.name)
 
 
-
-func _unhandled_input(event: InputEvent)-> void:
-	
+func _unhandled_input(event: InputEvent) -> void:
 	pass
 
-func _process(delta:float)-> void:
+
+func _process(delta: float) -> void:
 	pass
 
 ########### Functions ###########
-
-
