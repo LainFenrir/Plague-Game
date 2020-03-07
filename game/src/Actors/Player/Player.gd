@@ -9,6 +9,7 @@ export var max_speed := 250
 export var jump_force := -400
 export var air_move = true
 
+var is_input_enabled = true
 var velocity := Vector2.ZERO
 
 

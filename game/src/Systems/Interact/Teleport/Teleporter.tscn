@@ -6,12 +6,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.9905, 10 )
 
-[node name="Teleporter" type="Area2D"]
+[node name="Teleporter" type="Area2D" groups=[
+"Teleporters",
+]]
 collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="SpawnPosition" type="Position2D" parent="."]
 
 [node name="Actions" type="Node" parent="."]
 

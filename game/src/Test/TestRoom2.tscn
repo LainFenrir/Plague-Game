@@ -12,14 +12,16 @@ position = Vector2( 48.8703, 118.918 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 393216, 1, 0, 393217, 1, 0, 458752, 1, 0, 458753, 1, 0, 589821, 0, 0, 524288, 1, 0, 524289, 1, 0, 524310, 0, 0, 524311, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0 )
 
 [node name="Teleporter" parent="." instance=ExtResource( 3 )]
-position = Vector2( 16.2901, 131.135 )
+position = Vector2( 16.6873, 133.518 )
 
 [node name="Teleport" parent="Teleporter/Actions" index="0"]
-next_scene = "test1"
+next_scene = "TestRoom"
+teleport_to = "Teleporter"
 
 [editable path="Teleporter"]

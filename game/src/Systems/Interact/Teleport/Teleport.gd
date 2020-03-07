@@ -1,8 +1,7 @@
 extends Action
 
 export var next_scene: String
-
-var levels = {"test1": "res://src/Test/TestRoom.tscn", "test2": "res://src/Test/TestRoom2.tscn"}
+export var teleport_to: String
 
 
 func interact():
@@ -11,9 +10,4 @@ func interact():
 
 
 func teleport():
-	var level_path := get_level_path(next_scene)
-	get_tree().change_scene(level_path)
-
-
-func get_level_path(level_name: String) -> String:
-	return levels.get(level_name)
+	Globals.transport_to(next_scene, teleport_to)
