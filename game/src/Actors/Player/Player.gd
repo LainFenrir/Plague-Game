@@ -9,7 +9,7 @@ export var max_speed := 250
 export var jump_force := -400
 export var air_move = true
 
-var is_input_enabled = true
+var inventory := []
 var velocity := Vector2.ZERO
 
 
@@ -19,7 +19,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print(state_machine.state.name)
+#	print(state_machine.state.name)
+	pass
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -30,3 +31,4 @@ func _process(delta: float) -> void:
 	pass
 
 ########### Functions ###########
+

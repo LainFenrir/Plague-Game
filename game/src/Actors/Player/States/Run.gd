@@ -28,12 +28,6 @@ func exit() -> void:
 
 ########## Main Methods #############	
 
-
-func run():
-	#TODO:REFACTOR ACTIONS TO BE CONFINED IN THEIR STATES
-	pass
-
-
 func _listen_state_change() -> void:
 	if owner.is_on_floor():
 		if get_move_direction() == 0.0:

@@ -1,6 +1,6 @@
 extends Node
 
-# Interaction signals
+#### Interaction signals ###
 signal can_interact(value)
 signal interaction_start
 signal interaction_finished
