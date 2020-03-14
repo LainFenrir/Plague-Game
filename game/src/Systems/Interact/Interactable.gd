@@ -31,7 +31,7 @@ func call_interaction(is_trigger = false)->void:
 		for i in range(actions.size()):
 			if actions[i].is_active and not actions[i].has_executed:
 				actions[i].interact()
-				trigger_list[i].has_executed = true
+				actions[i].has_executed = true
 	Signals.emit_signal("interaction_finished")
 
 

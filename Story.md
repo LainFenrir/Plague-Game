@@ -1,3 +1,0 @@
-# Story
-
-# Characters

@@ -7,3 +7,6 @@ signal interaction_finished
 signal interaction_on_touch
 
 signal transition_to(to_map,to_this)
+
+signal can_climb(value,pos)
+signal will_drop(value)

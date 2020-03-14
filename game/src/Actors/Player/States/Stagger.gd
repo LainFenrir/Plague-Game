@@ -1,5 +1,6 @@
 extends PlayerState
 
+#### Interface Methods ####
 func unhandled_input(event: InputEvent) -> void:
 	_parent.unhandled_input(event)
 
@@ -18,3 +19,5 @@ func enter(msg: Dictionary = {}) -> void:
 
 func exit() -> void:
 	_parent.exit()
+
+##### Main Functions ####

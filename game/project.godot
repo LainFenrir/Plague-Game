@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://src/Objects/Item.gd"
+"path": "res://src/Objects/Items/Item.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -145,6 +145,8 @@ attack={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Ground"
 2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Ladder"
+2d_physics/layer_5="Enemy"
 
 [rendering]
 

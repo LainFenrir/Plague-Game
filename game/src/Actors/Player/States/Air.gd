@@ -21,7 +21,7 @@ func physics_process(delta: float) -> void:
 	if owner.velocity.y <= 0:
 		self._listen_state_change()
 	if owner.air_move:
-		owner.velocity = _parent.horizontal_movement(delta,owner.velocity,owner.max_speed,get_move_direction())
+		owner.velocity = _parent.horizontal_movement(delta,owner.velocity,owner.jump_horizontal_speed,get_move_direction())
 
 	_parent.physics_process(delta)
 

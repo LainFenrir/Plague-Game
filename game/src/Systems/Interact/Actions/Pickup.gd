@@ -1,5 +1,6 @@
 extends Action
 
+#TODO:MOVE THIS TO ROOT NODE
 export var item : Resource
 
 func _ready():
@@ -10,4 +11,5 @@ func interact():
 
 func pickup():
 	Globals.pickup_item(item)
+	get_node("../../Sprite").visible = false
 	

@@ -15,6 +15,7 @@ func unhandled_input(event: InputEvent) -> void:
 		_state_machine.transition_to(states.air, {"jumped": true})
 	if event.is_action_pressed("interact") and is_interactable and owner.is_on_floor():
 		_state_machine.transition_to(states.interact)
+	self.check_climb_input(event)
 	pass
 
 
@@ -72,3 +73,12 @@ func flip_sprite() -> void:
 		owner.get_node("Sprite").flip_h = true
 	elif direction == 1:
 		owner.get_node("Sprite").flip_h = false
+
+
+func check_climb_input(event:InputEvent):
+	if can_climb and not is_climbing:
+		if event.is_action_pressed("move_down"):
+			_state_machine.transition_to(states.climb)
+		if event.is_action_pressed("move_up"):
+			_state_machine.transition_to(states.climb)
+

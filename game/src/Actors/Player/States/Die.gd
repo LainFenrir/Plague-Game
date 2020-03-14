@@ -19,3 +19,5 @@ func enter(msg: Dictionary = {}) -> void:
 
 func exit() -> void:
 	_parent.exit()
+
+##### Main Functions ####

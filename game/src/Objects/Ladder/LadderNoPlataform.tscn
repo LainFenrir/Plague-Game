@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Objects/Ladder/Ladder.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 60.8181 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.11975, 1.26756 )
+
+[node name="Ladder2" type="Node2D"]
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 8
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2( 152.376, 149.734 )
+shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 152.376, 202.853 )
+
+[node name="DropArea" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
+position = Vector2( 152.376, 204.81 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area" to="Area" method="_on_body_entered"]
+[connection signal="body_exited" from="Area" to="Area" method="_on_body_exited"]
+[connection signal="body_entered" from="DropArea" to="Area" method="_on_DropArea_body_entered"]
+[connection signal="body_exited" from="DropArea" to="Area" method="_on_DropArea_body_exited"]

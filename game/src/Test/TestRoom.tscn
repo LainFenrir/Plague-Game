@@ -1,16 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Test/test_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Systems/Interact/Teleport/Teleporter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Test/Potion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Test/Ladder.gd" type="Script" id=5]
+[ext_resource path="res://src/Systems/Interact/Pickable/Pickable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Objects/Ladder/LadderNoPlataform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Ladder/Ladder.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.85638, 89.9032 )
+extents = Vector2( 8, 82.9705 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7.8876, 3.88883 )
+extents = Vector2( 8, 60.8181 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 45.916 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7.98022, 0.746986 )
 
 [node name="TestRoom" type="Node2D"]
 
@@ -20,13 +27,12 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 262158, 1, 0, 262159, 1, 0, 262169, 0, 0, 262170, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 3, 0, 327694, 1, 0, 327695, 1, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 393228, 3, 0, 393230, 1, 0, 393231, 1, 0, 458764, 3, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 524300, 3, 0, 589836, 3, 0, 655372, 3, 0, 720908, 3, 0, 786444, 3, 0, 851980, 3, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 917516, 3, 0, 983052, 3, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0 )
+tile_data = PoolIntArray( 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 262158, 1, 0, 262159, 1, 0, 262168, 3, 0, 262169, 0, 0, 262170, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 3, 0, 327694, 1, 0, 327695, 1, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 3, 0, 393223, 3, 0, 393228, 3, 0, 393230, 1, 0, 393231, 1, 0, 393240, 3, 0, 458759, 3, 0, 458764, 3, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458776, 3, 0, 524295, 3, 0, 524300, 3, 0, 524312, 3, 0, 589831, 3, 0, 589836, 3, 0, 589848, 3, 0, 655367, 3, 0, 655372, 3, 0, 720903, 3, 0, 720908, 3, 0, 786439, 3, 0, 786444, 3, 0, 851975, 3, 0, 851980, 3, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 917516, 3, 0, 983052, 3, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
 position = Vector2( 55.7097, 19.7079 )
 z_index = 1
-collision_mask = 6
 
 [node name="Teleporter" parent="." instance=ExtResource( 3 )]
 position = Vector2( 239.627, 101.514 )
@@ -35,24 +41,49 @@ position = Vector2( 239.627, 101.514 )
 next_scene = "TestRoom2"
 teleport_to = "Teleporter"
 
-[node name="Ladder" type="Node2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="OnLadderArea" type="Area2D" parent="Ladder"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/OnLadderArea"]
-position = Vector2( 200.104, 166.318 )
-shape = SubResource( 1 )
-
-[node name="TopBase" type="StaticBody2D" parent="Ladder"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/TopBase"]
-position = Vector2( 199.778, 83.9315 )
-shape = SubResource( 2 )
-one_way_collision = true
-one_way_collision_margin = 0.0
-
 [node name="Potion" parent="." instance=ExtResource( 4 )]
 position = Vector2( 332.643, 71.354 )
+collision_layer = 4
+
+[node name="Ladder" parent="." instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" parent="Ladder/Area" index="0"]
+shape = SubResource( 1 )
+
+[node name="Ladder2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -31.6987, 0 )
+
+[node name="CollisionShape2D" parent="Ladder2/Area" index="0"]
+position = Vector2( 151.56, 156.913 )
+shape = SubResource( 2 )
+
+[node name="Position2D" parent="Ladder2" index="1"]
+position = Vector2( 151.356, 219.39 )
+
+[node name="CollisionShape2D" parent="Ladder2/DropArea" index="0"]
+position = Vector2( 151.209, 219.425 )
+
+[node name="Ladder3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 192.753, -43.4843 )
+
+[node name="CollisionShape2D" parent="Ladder3/Area" index="0"]
+position = Vector2( 199.124, 153.128 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" parent="Ladder3/Plataform" index="0"]
+position = Vector2( 198.91, 108.77 )
+shape = SubResource( 4 )
+
+[node name="Position2D" parent="Ladder3" index="2"]
+position = Vector2( 199.124, 198.181 )
+
+[node name="CollisionShape2D" parent="Ladder3/DropArea" index="0"]
+position = Vector2( 198.815, 201.256 )
 
 [editable path="Teleporter"]
+
+[editable path="Ladder"]
+
+[editable path="Ladder2"]
+
+[editable path="Ladder3"]
