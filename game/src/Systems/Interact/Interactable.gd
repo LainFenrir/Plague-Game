@@ -8,6 +8,7 @@ onready var actions_children := $Actions.get_children()
 var calls: int = 0
 var trigger_list = []
 var actions = []
+
 func _ready():
 	Signals.connect("interaction_start", self, "call_interaction")
 	
@@ -47,9 +48,14 @@ func body_entered():
 func body_exited():
 	if is_active:
 		Signals.emit_signal("can_interact", false)
-	for i in range(actions_children.size()):
-		if actions_children[i].reset_action:
-			actions_children[i].has_executed = false
+	if has_trigger:
+		for i in range(trigger_list.size()):
+			if trigger_list[i].reset_action:
+				trigger_list[i].has_executed = false
+	else:
+		for i in range(actions.size()):
+			if actions[i].reset_action:
+				actions[i].has_executed = false
 
 
 func action_order_sort(a, b):
@@ -64,3 +70,4 @@ func create_trigger_list():
 				trigger_list.append(actions[i])
 				actions.remove(i)
 		
+

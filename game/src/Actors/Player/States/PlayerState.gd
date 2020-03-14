@@ -31,8 +31,8 @@ func set_is_interactable(value: bool):
 func set_can_climb(value: bool,pos: Vector2):
 	can_climb = value
 	ladder_position = pos
-	print(can_climb)
 
+	
 func set_will_drop(value:bool):
 	will_drop = value
 
