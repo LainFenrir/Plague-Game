@@ -12,12 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Action",
 "language": "GDScript",
-"path": "res://src/Systems/Interact/Actions/Action.gd"
-}, {
-"base": "Node2D",
-"class": "GameMap",
-"language": "GDScript",
-"path": "res://src/Systems/GameMap.gd"
+"path": "res://src/Systems/Interact/Action.gd"
 }, {
 "base": "Area2D",
 "class": "Interactable",
@@ -48,16 +43,27 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://src/Systems/StateMachine/StateMachine.gd"
+}, {
+"base": "Reference",
+"class": "WAT",
+"language": "GDScript",
+"path": "res://addons/WAT/runner/namespace.gd"
+}, {
+"base": "Node",
+"class": "WATTest",
+"language": "GDScript",
+"path": "res://addons/WAT/runner/test.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
-"GameMap": "",
 "Interactable": "",
 "Item": "",
 "Player": "",
 "PlayerState": "",
 "State": "",
-"StateMachine": ""
+"StateMachine": "",
+"WAT": "",
+"WATTest": ""
 }
 
 [application]
@@ -70,6 +76,15 @@ config/icon="res://icon.png"
 
 Signals="*res://src/Systems/Autoload/Signals.gd"
 Globals="*res://src/Systems/Autoload/Globals.gd"
+Inventory="*res://src/Systems/Autoload/Inventory.gd"
+Transporter="*res://src/Systems/Autoload/Transporter.gd"
+Interface="*res://src/GUI/Interface.tscn"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
@@ -79,7 +94,7 @@ window/stretch/mode="2d"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "vnen.tiled_importer" )
+enabled=PoolStringArray( "NodeLinker" )
 
 [gdnative]
 

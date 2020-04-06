@@ -1,28 +1,25 @@
 extends PlayerState
-# Move parent state for movement states[Idle,Run,Air]
+# Move parent state for movement states[Idle,Run,Air,Climb]
 
 const FLOOR_NORMAL = Vector2.UP
 
-var snap_vector := Vector2(0, 32)
+#var snap_vector := Vector2(0, 32)
 
 var released_jump := false
 var is_jump := false
+
 ######## Interface Methods #######
-
-
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and owner.is_on_floor():
 		_state_machine.transition_to(states.air, {"jumped": true})
 	if event.is_action_pressed("interact") and is_interactable and owner.is_on_floor():
 		_state_machine.transition_to(states.interact)
 	self.check_climb_input(event)
-	pass
 
 
 func physics_process(delta: float) -> void:
 	self.flip_sprite()
 	owner.velocity = self.move_with_gravity(delta, owner.velocity)
-	pass
 
 
 func process(delta: float) -> void:
@@ -38,8 +35,6 @@ func exit() -> void:
 
 
 ######### Main Actions #########
-
-
 func horizontal_movement(delta: float, old_velocity: Vector2, speed: float, direction: float):
 	var new_velocity := old_velocity
 
@@ -77,8 +72,8 @@ func flip_sprite() -> void:
 
 func check_climb_input(event:InputEvent):
 	if can_climb and not is_climbing:
-		if event.is_action_pressed("move_down"):
+		if event.is_action_pressed("move_down") and owner.ray_plataform.is_colliding():
 			_state_machine.transition_to(states.climb)
-		if event.is_action_pressed("move_up"):
+		if event.is_action_pressed("move_up") and not owner.ray_plataform.is_colliding():
 			_state_machine.transition_to(states.climb)
 

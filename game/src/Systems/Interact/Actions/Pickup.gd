@@ -1,8 +1,8 @@
 extends Action
 
-onready var _parent = get_node("../../")
-onready var _sprite = get_node("../../Sprite")
-onready var _collision = get_node("../../Collision")
+onready var _parent = $'../..'
+onready var _sprite = $'../../Sprite'
+onready var _collision = $'../../Collision'
 
 func _ready():
 	pass
@@ -11,12 +11,12 @@ func interact():
 	self.pickup()
 	
 	if not reset_action:
-		self.disable()
+		self.call_deferred("disable")
 	
 
 func pickup():
 	var item = _parent.item 
-	Globals.pickup_item(item)
+	Inventory.pickup_item(item)
 	
 	
 func disable():

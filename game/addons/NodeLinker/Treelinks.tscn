@@ -1,0 +1,30 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ClickableButton" type="Button" parent="."]
+margin_right = 74.0
+margin_bottom = 20.0
+focus_mode = 0
+mouse_filter = 1
+enabled_focus_mode = 0
+text = "Link node"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tree" type="Tree" parent="."]
+visible = false
+margin_top = 25.0
+margin_right = 100.0
+margin_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+allow_reselect = true
+hide_folding = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,6 +1,8 @@
 
 # Godot-specific ignores
 .import/
+game/addons/gut
+game/addons/WAT
 export.cfg
 export_presets.cfg
 

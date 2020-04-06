@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/Images/transition.png" type="Texture" id=1]
+[ext_resource path="res://assets/Images/transition3.png" type="Texture" id=1]
 [ext_resource path="res://assets/shaders/transition.shader" type="Shader" id=2]
+[ext_resource path="res://src/GUI/Transition/Transition.gd" type="Script" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -11,6 +12,7 @@ shader_param/mask = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "fade_in"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
 tracks/0/interp = 1
@@ -18,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
@@ -40,6 +42,7 @@ tracks/0/keys = {
 }
 
 [node name="TransitionAnimation" type="CanvasLayer"]
+script = ExtResource( 3 )
 
 [node name="Shader" type="ColorRect" parent="."]
 material = SubResource( 1 )

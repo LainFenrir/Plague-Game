@@ -9,6 +9,8 @@ var calls: int = 0
 var trigger_list = []
 var actions = []
 
+# How long until I notice I have to refactor this?
+
 func _ready():
 	Signals.connect("interaction_start", self, "call_interaction")
 	

@@ -36,12 +36,12 @@ z_index = 1
 
 [node name="Teleporter" parent="." instance=ExtResource( 3 )]
 position = Vector2( 239.627, 101.514 )
-
-[node name="Teleport" parent="Teleporter/Actions" index="0"]
 next_scene = "TestRoom2"
 teleport_to = "Teleporter"
 
-[node name="Potion" parent="." instance=ExtResource( 4 )]
+[node name="Potion" parent="." groups=[
+"Pickable",
+] instance=ExtResource( 4 )]
 position = Vector2( 332.643, 71.354 )
 collision_layer = 4
 
@@ -79,8 +79,6 @@ position = Vector2( 199.124, 198.181 )
 
 [node name="CollisionShape2D" parent="Ladder3/DropArea" index="0"]
 position = Vector2( 198.815, 201.256 )
-
-[editable path="Teleporter"]
 
 [editable path="Ladder"]
 

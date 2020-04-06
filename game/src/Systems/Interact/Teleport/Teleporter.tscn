@@ -21,5 +21,6 @@ shape = SubResource( 1 )
 
 [node name="Teleport" type="Node" parent="Actions"]
 script = ExtResource( 1 )
+order = 1
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -13,7 +13,6 @@ export var air_move = true
 export var climb_speed := 150
 export var jump_horizontal_speed :=150
 
-var inventory := []
 var velocity := Vector2.ZERO
 
 
