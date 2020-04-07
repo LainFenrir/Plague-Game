@@ -17,6 +17,7 @@ var can_climb := false
 var ladder_position : Vector2
 var is_climbing := false
 var will_drop :=false
+var interactable_object : String
 
 func _ready() -> void:
 	yield(owner, "ready")
@@ -27,8 +28,9 @@ func _ready() -> void:
 
 
 #### Signals ####
-func set_is_interactable(value: bool):
+func set_is_interactable(value: bool,object_name:String):
 	is_interactable = value
+	interactable_object = object_name
 
 	
 func set_can_climb(value: bool,pos: Vector2):

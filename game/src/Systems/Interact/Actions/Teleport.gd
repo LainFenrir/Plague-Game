@@ -11,6 +11,7 @@ func _ready() -> void:
 	yield(_parent, "ready")
 	self.next_scene = _parent.next_scene
 	self.teleport_to = _parent.teleport_to
+	self.is_local = _parent.is_local
 
 
 func interact() -> void:
@@ -22,16 +23,14 @@ func interact() -> void:
 
 
 func teleport() -> void:
-	if _parent.is_local:
+	if self.is_local:
 		local_teleport()
 	else:
 		Transporter.transport_to(next_scene, teleport_to)
 
 
 func local_teleport() -> void:
-	#TODO: implement local_teleport
-		#STEP:Set player position
-		#STEP:Play transition 
+	Transporter.set_player_pos(teleport_to)
 	pass
 
 func play_transition(animation_name):

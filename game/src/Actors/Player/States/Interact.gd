@@ -20,7 +20,7 @@ func process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	Signals.connect("interaction_finished", self, "finish_interaction")
-	Signals.emit_signal("interaction_start")
+	Signals.emit_signal("interaction_start",interactable_object)
 	pass
 
 

@@ -10,6 +10,7 @@ var trigger_list = []
 var actions = []
 
 # How long until I notice I have to refactor this?
+# first notice
 
 func _ready():
 	Signals.connect("interaction_start", self, "call_interaction")
@@ -24,32 +25,33 @@ func _ready():
 		actions.sort_custom(self, "action_order_sort")
 
 
-func call_interaction(is_trigger = false)->void:
-	if is_trigger:
-		for i in range(trigger_list.size()):
-			if trigger_list[i].is_active and not trigger_list[i].has_executed:
-				trigger_list[i].interact()
-				trigger_list[i].has_executed = true
-	else:
-		for i in range(actions.size()):
-			if actions[i].is_active and not actions[i].has_executed:
-				actions[i].interact()
-				actions[i].has_executed = true
-	Signals.emit_signal("interaction_finished")
+func call_interaction(object_name,is_trigger = false)->void:
+	if object_name == self.name:
+		if is_trigger:
+			for i in range(trigger_list.size()):
+				if trigger_list[i].is_active and not trigger_list[i].has_executed:
+					trigger_list[i].interact()
+					trigger_list[i].has_executed = true
+		else:
+			for i in range(actions.size()):
+				if actions[i].is_active and not actions[i].has_executed:
+					actions[i].interact()
+					actions[i].has_executed = true
+		Signals.emit_signal("interaction_finished")
 
 
 func body_entered():
 	if is_active:
 		if has_trigger:
-			self.call_interaction(true)
+			self.call_interaction(self.name,true)
 		else:
-			Signals.emit_signal("can_interact", true)
+			Signals.emit_signal("can_interact", true, self.name)
 		
 
 
 func body_exited():
 	if is_active:
-		Signals.emit_signal("can_interact", false)
+		Signals.emit_signal("can_interact", false, self.name)
 	if has_trigger:
 		for i in range(trigger_list.size()):
 			if trigger_list[i].reset_action:

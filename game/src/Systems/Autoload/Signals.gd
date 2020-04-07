@@ -1,10 +1,10 @@
 extends Node
 
 #### Interaction signals ###
-signal can_interact(value)
-signal interaction_start
+signal can_interact(value,object_name)
+signal interaction_on_touch(object_name)
+signal interaction_start(object_name)
 signal interaction_finished
-signal interaction_on_touch
 
 ##### Climb signals ####
 signal can_climb(value,pos)
