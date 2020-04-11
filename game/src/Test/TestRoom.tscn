@@ -21,38 +21,39 @@ pause_mode = 1
 position = Vector2( 55.7097, 19.7079 )
 z_index = 1
 
-[node name="Teleporter" parent="." instance=ExtResource( 3 )]
-position = Vector2( 239.627, 101.514 )
-next_scene = "TestRoom2"
-teleport_to = "Teleporter"
-
 [node name="Potion" parent="." groups=[
 "Pickable",
 ] instance=ExtResource( 4 )]
 position = Vector2( 332.643, 71.354 )
 collision_layer = 4
 
-[node name="Teleporter3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 46.6538, 276.424 )
-teleport_to = "Teleporter2"
-is_local = true
-
-[node name="Teleporter2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 143.46, 452.542 )
-teleport_to = "Teleporter3"
-is_local = true
-
 [node name="Ladders" type="Node" parent="."]
 
 [node name="Ladder" parent="Ladders" instance=ExtResource( 6 )]
 position = Vector2( 391.982, 64.6024 )
-ladder_size = 6
 
 [node name="Ladder2" parent="Ladders" instance=ExtResource( 6 )]
-position = Vector2( 200.134, 80 )
+position = Vector2( 200.134, 80.7361 )
 ladder_size = 11
 
 [node name="Ladder3" parent="Ladders" instance=ExtResource( 6 )]
 position = Vector2( 120.114, 97.5377 )
 platform_type = 0
 ladder_size = 8
+
+[node name="Teleporters" type="Node" parent="."]
+
+[node name="Teleporter" parent="Teleporters" instance=ExtResource( 3 )]
+position = Vector2( 239.627, 101.514 )
+next_scene = "TestRoom2"
+teleport_to = "Teleporter"
+
+[node name="Teleporter3" parent="Teleporters" instance=ExtResource( 3 )]
+position = Vector2( 46.6538, 276.424 )
+teleport_to = "Teleporter2"
+is_local = true
+
+[node name="Teleporter2" parent="Teleporters" instance=ExtResource( 3 )]
+position = Vector2( 143.46, 452.542 )
+teleport_to = "Teleporter3"
+is_local = true

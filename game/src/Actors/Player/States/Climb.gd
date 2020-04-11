@@ -48,16 +48,7 @@ func climb(delta: float, old_velocity: Vector2, speed: float, direction: float)-
 
 ####### Signals #######
 func stop_climbing()->void :
-# TODO: if still inside box press the oposite direction to get out
 	if  will_drop and Input.is_action_pressed("move_down"):
 		_state_machine.transition_to(states.air)
 	if not can_climb:
 		_state_machine.transition_to(states.air)
-	# if owner.raycast.is_colliding():
-	# 	_state_machine.transition_to(states.air)
-	# if value == false and owner.is_on_floor():
-	# 	if owner.velocity.x != 0.0:
-	# 		_state_machine.transition_to(states.run)
-	# 	_state_machine.transition_to(states.idle)
-	# else:
-	# 	_state_machine.transition_to(states.air)

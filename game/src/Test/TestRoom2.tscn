@@ -1,14 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Test/test_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Systems/Interact/Teleport/Teleporter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/ColisionShapes/Ladders/ladder6_tiles.tres" type="Shape2D" id=4]
 [ext_resource path="res://src/Objects/Ladder/Ladder.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/ColisionShapes/Ladders/ladder8_tiles.tres" type="Shape2D" id=6]
-[ext_resource path="res://assets/ColisionShapes/Ladders/ladder16_tiles.tres" type="Shape2D" id=7]
-[ext_resource path="res://assets/ColisionShapes/Ladders/ladder24_tiles.tres" type="Shape2D" id=8]
-[ext_resource path="res://assets/ColisionShapes/Ladders/ladder11_tiles.tres" type="Shape2D" id=9]
 
 [node name="TestRoom2" type="Node2D"]
 
@@ -28,77 +23,23 @@ position = Vector2( 16.6873, 133.518 )
 next_scene = "TestRoom"
 teleport_to = "Teleporter"
 
-[node name="Ladder6Tiles" parent="." instance=ExtResource( 5 )]
-position = Vector2( 576.174, -158.448 )
+[node name="Ladders" type="Node" parent="."]
 
-[node name="CollisionShape2D" parent="Ladder6Tiles/Area" index="0"]
-position = Vector2( 199.983, 121.393 )
-shape = ExtResource( 4 )
+[node name="Ladder" parent="Ladders" instance=ExtResource( 5 )]
+position = Vector2( -56, 128.6 )
+ladder_size = 24
 
-[node name="Position2D" parent="Ladder6Tiles" index="2"]
-position = Vector2( 199.644, 163.773 )
+[node name="Ladder2" parent="Ladders" instance=ExtResource( 5 )]
+position = Vector2( 280, -111.328 )
+ladder_size = 16
 
-[node name="CollisionShape2D" parent="Ladder6Tiles/DropArea" index="0"]
-position = Vector2( 199.644, 166.264 )
+[node name="Ladder3" parent="Ladders" instance=ExtResource( 5 )]
+position = Vector2( 536, -111 )
+ladder_size = 8
 
-[node name="Ladder8tiles" parent="." instance=ExtResource( 5 )]
-position = Vector2( 337.948, -200.553 )
+[node name="Ladder4" parent="Ladders" instance=ExtResource( 5 )]
+position = Vector2( 776, -78 )
 
-[node name="CollisionShape2D" parent="Ladder8tiles/Area" index="0"]
-position = Vector2( 198.151, 148.438 )
-shape = ExtResource( 6 )
-
-[node name="CollisionShape2D" parent="Ladder8tiles/Plataform" index="0"]
-position = Vector2( 198.319, 89.3649 )
-
-[node name="Position2D" parent="Ladder8tiles" index="2"]
-position = Vector2( 198.046, 208.768 )
-
-[node name="CollisionShape2D" parent="Ladder8tiles/DropArea" index="0"]
-position = Vector2( 198.046, 211.259 )
-
-[node name="Ladder11tiles" parent="." instance=ExtResource( 5 )]
-position = Vector2( 191.689, 48.7532 )
-
-[node name="CollisionShape2D" parent="Ladder11tiles/Area" index="0"]
-position = Vector2( 200.471, 161.92 )
-shape = ExtResource( 9 )
-
-[node name="Ladder16tiles" parent="." instance=ExtResource( 5 )]
-position = Vector2( 79.9508, -191.333 )
-
-[node name="CollisionShape2D" parent="Ladder16tiles/Area" index="0"]
-position = Vector2( 199.72, 200.48 )
-shape = ExtResource( 7 )
-
-[node name="Position2D" parent="Ladder16tiles" index="2"]
-position = Vector2( 199.983, 325.077 )
-
-[node name="CollisionShape2D" parent="Ladder16tiles/DropArea" index="0"]
-position = Vector2( 199.983, 327.568 )
-
-[node name="Ladder24tiles" parent="." instance=ExtResource( 5 )]
-position = Vector2( -255.954, 49.8612 )
-
-[node name="CollisionShape2D" parent="Ladder24tiles/Area" index="0"]
-position = Vector2( 200.01, 263.226 )
-shape = ExtResource( 8 )
-
-[node name="CollisionShape2D" parent="Ladder24tiles/Plataform" index="0"]
-position = Vector2( 200.125, 78.9148 )
-
-[node name="Position2D" parent="Ladder24tiles" index="2"]
-position = Vector2( 200.307, 450.436 )
-
-[node name="CollisionShape2D" parent="Ladder24tiles/DropArea" index="0"]
-position = Vector2( 200.307, 452.927 )
-
-[editable path="Ladder6Tiles"]
-
-[editable path="Ladder8tiles"]
-
-[editable path="Ladder11tiles"]
-
-[editable path="Ladder16tiles"]
-
-[editable path="Ladder24tiles"]
+[node name="Ladder5" parent="Ladders" instance=ExtResource( 5 )]
+position = Vector2( 392, 129 )
+ladder_size = 11

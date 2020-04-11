@@ -30,7 +30,6 @@ func exit() -> void:
 
 
 func idle_around():
-	#TODO:REFACTOR ACTIONS TO BE CONFINED IN THEIR STATES
 	owner.velocity.x = 0.0
 
 
