@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Test/test_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Systems/Interact/Teleport/Teleporter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ColisionShapes/Ladders/ladder6_tiles.tres" type="Shape2D" id=4]
+[ext_resource path="res://src/Objects/Ladder/Ladder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/ColisionShapes/Ladders/ladder8_tiles.tres" type="Shape2D" id=6]
+[ext_resource path="res://assets/ColisionShapes/Ladders/ladder16_tiles.tres" type="Shape2D" id=7]
+[ext_resource path="res://assets/ColisionShapes/Ladders/ladder24_tiles.tres" type="Shape2D" id=8]
+[ext_resource path="res://assets/ColisionShapes/Ladders/ladder11_tiles.tres" type="Shape2D" id=9]
 
 [node name="TestRoom2" type="Node2D"]
 
@@ -15,9 +21,84 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 393216, 1, 0, 393217, 1, 0, 458752, 1, 0, 458753, 1, 0, 589821, 0, 0, 524288, 1, 0, 524289, 1, 0, 524310, 0, 0, 524311, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0 )
+tile_data = PoolIntArray( -458735, 3, 0, -458734, 0, 0, -458733, 0, 0, -458732, 0, 0, -458731, 0, 0, -458730, 0, 0, -458729, 0, 0, -458728, 0, 0, -458727, 0, 0, -458726, 0, 0, -458725, 0, 0, -458724, 0, 0, -458723, 0, 0, -458722, 0, 0, -458721, 0, 0, -458720, 0, 0, -458719, 3, 0, -393199, 3, 0, -393183, 3, 0, -327663, 3, 0, -327647, 3, 0, -327632, 3, 0, -327631, 0, 0, -327630, 0, 0, -327629, 0, 0, -327628, 0, 0, -327627, 0, 0, -327626, 0, 0, -327625, 0, 0, -327624, 0, 0, -327623, 0, 0, -327622, 0, 0, -262127, 3, 0, -262111, 3, 0, -262096, 3, 0, -196591, 3, 0, -196575, 3, 0, -196560, 3, 0, -131055, 3, 0, -131039, 3, 0, -131024, 3, 0, -65519, 3, 0, -65503, 3, 0, -65488, 3, 0, 17, 3, 0, 33, 3, 0, 48, 3, 0, 65553, 3, 0, 65567, 0, 0, 65568, 0, 0, 65569, 0, 0, 65570, 0, 0, 65571, 0, 0, 65572, 0, 0, 65573, 0, 0, 65574, 0, 0, 65575, 0, 0, 65576, 0, 0, 65577, 0, 0, 65578, 0, 0, 65579, 0, 0, 65580, 0, 0, 65581, 0, 0, 65582, 0, 0, 65583, 0, 0, 65584, 0, 0, 65585, 0, 0, 131089, 3, 0, 196625, 3, 0, 262161, 3, 0, 327697, 3, 0, 393216, 1, 0, 393217, 1, 0, 393233, 3, 0, 458752, 1, 0, 458753, 1, 0, 458769, 3, 0, 589820, 3, 0, 589821, 0, 0, 524288, 1, 0, 524289, 1, 0, 524305, 3, 0, 524310, 0, 0, 524311, 0, 0, 524312, 3, 0, 655356, 3, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589848, 3, 0, 720892, 3, 0, 655384, 3, 0, 786428, 3, 0, 720920, 3, 0, 851964, 3, 0, 786456, 3, 0, 917500, 3, 0, 851992, 3, 0, 983036, 3, 0, 917528, 3, 0, 1048572, 3, 0, 983064, 3, 0, 1114108, 3, 0, 1048600, 3, 0, 1179644, 3, 0, 1114136, 3, 0, 1245180, 3, 0, 1179672, 3, 0, 1310716, 3, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1376252, 3, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1310737, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1441788, 3, 0, 1507324, 3, 0, 1572860, 3, 0, 1638396, 3, 0, 1703932, 3, 0, 1769468, 3, 0, 1835004, 3, 0, 1900540, 3, 0, 1966076, 3, 0, 2031612, 3, 0, 2097148, 3, 0, 2162657, 0, 0, 2162658, 0, 0, 2162659, 0, 0, 2162660, 0, 0, 2162661, 0, 0, 2162662, 0, 0, 2162663, 0, 0, 2162664, 0, 0, 2162665, 0, 0, 2162666, 0, 0, 2162667, 0, 0, 2162668, 0, 0, 2162669, 0, 0, 2162670, 0, 0, 2162671, 0, 0, 2162672, 0, 0, 2162673, 0, 0, 2162674, 0, 0, 2162675, 0, 0, 2162676, 0, 0, 2162677, 0, 0, 2162678, 0, 0, 2162679, 0, 0, 2162680, 0, 0, 2162681, 0, 0, 2162682, 0, 0, 2162683, 0, 0, 2162684, 0, 0 )
 
 [node name="Teleporter" parent="." instance=ExtResource( 3 )]
 position = Vector2( 16.6873, 133.518 )
 next_scene = "TestRoom"
 teleport_to = "Teleporter"
+
+[node name="Ladder6Tiles" parent="." instance=ExtResource( 5 )]
+position = Vector2( 576.174, -158.448 )
+
+[node name="CollisionShape2D" parent="Ladder6Tiles/Area" index="0"]
+position = Vector2( 199.983, 121.393 )
+shape = ExtResource( 4 )
+
+[node name="Position2D" parent="Ladder6Tiles" index="2"]
+position = Vector2( 199.644, 163.773 )
+
+[node name="CollisionShape2D" parent="Ladder6Tiles/DropArea" index="0"]
+position = Vector2( 199.644, 166.264 )
+
+[node name="Ladder8tiles" parent="." instance=ExtResource( 5 )]
+position = Vector2( 337.948, -200.553 )
+
+[node name="CollisionShape2D" parent="Ladder8tiles/Area" index="0"]
+position = Vector2( 198.151, 148.438 )
+shape = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="Ladder8tiles/Plataform" index="0"]
+position = Vector2( 198.319, 89.3649 )
+
+[node name="Position2D" parent="Ladder8tiles" index="2"]
+position = Vector2( 198.046, 208.768 )
+
+[node name="CollisionShape2D" parent="Ladder8tiles/DropArea" index="0"]
+position = Vector2( 198.046, 211.259 )
+
+[node name="Ladder11tiles" parent="." instance=ExtResource( 5 )]
+position = Vector2( 191.689, 48.7532 )
+
+[node name="CollisionShape2D" parent="Ladder11tiles/Area" index="0"]
+position = Vector2( 200.471, 161.92 )
+shape = ExtResource( 9 )
+
+[node name="Ladder16tiles" parent="." instance=ExtResource( 5 )]
+position = Vector2( 79.9508, -191.333 )
+
+[node name="CollisionShape2D" parent="Ladder16tiles/Area" index="0"]
+position = Vector2( 199.72, 200.48 )
+shape = ExtResource( 7 )
+
+[node name="Position2D" parent="Ladder16tiles" index="2"]
+position = Vector2( 199.983, 325.077 )
+
+[node name="CollisionShape2D" parent="Ladder16tiles/DropArea" index="0"]
+position = Vector2( 199.983, 327.568 )
+
+[node name="Ladder24tiles" parent="." instance=ExtResource( 5 )]
+position = Vector2( -255.954, 49.8612 )
+
+[node name="CollisionShape2D" parent="Ladder24tiles/Area" index="0"]
+position = Vector2( 200.01, 263.226 )
+shape = ExtResource( 8 )
+
+[node name="CollisionShape2D" parent="Ladder24tiles/Plataform" index="0"]
+position = Vector2( 200.125, 78.9148 )
+
+[node name="Position2D" parent="Ladder24tiles" index="2"]
+position = Vector2( 200.307, 450.436 )
+
+[node name="CollisionShape2D" parent="Ladder24tiles/DropArea" index="0"]
+position = Vector2( 200.307, 452.927 )
+
+[editable path="Ladder6Tiles"]
+
+[editable path="Ladder8tiles"]
+
+[editable path="Ladder11tiles"]
+
+[editable path="Ladder16tiles"]
+
+[editable path="Ladder24tiles"]

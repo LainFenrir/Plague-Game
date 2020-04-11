@@ -1,23 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Test/test_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Systems/Interact/Teleport/Teleporter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Systems/Interact/Pickable/Pickable.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Objects/Ladder/LadderNoPlataform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Objects/Ladder/Ladder.tscn" type="PackedScene" id=6]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 82.9705 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 60.8181 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 45.916 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 7.98022, 0.746986 )
 
 [node name="TestRoom" type="Node2D"]
 
@@ -45,41 +32,6 @@ teleport_to = "Teleporter"
 position = Vector2( 332.643, 71.354 )
 collision_layer = 4
 
-[node name="Ladder" parent="." instance=ExtResource( 6 )]
-
-[node name="CollisionShape2D" parent="Ladder/Area" index="0"]
-shape = SubResource( 1 )
-
-[node name="Ladder2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -31.6987, 0 )
-
-[node name="CollisionShape2D" parent="Ladder2/Area" index="0"]
-position = Vector2( 151.56, 156.913 )
-shape = SubResource( 2 )
-
-[node name="Position2D" parent="Ladder2" index="1"]
-position = Vector2( 151.356, 219.39 )
-
-[node name="CollisionShape2D" parent="Ladder2/DropArea" index="0"]
-position = Vector2( 151.209, 219.425 )
-
-[node name="Ladder3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 192.753, -43.4843 )
-
-[node name="CollisionShape2D" parent="Ladder3/Area" index="0"]
-position = Vector2( 199.124, 153.128 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D" parent="Ladder3/Plataform" index="0"]
-position = Vector2( 198.91, 108.77 )
-shape = SubResource( 4 )
-
-[node name="Position2D" parent="Ladder3" index="2"]
-position = Vector2( 199.124, 198.181 )
-
-[node name="CollisionShape2D" parent="Ladder3/DropArea" index="0"]
-position = Vector2( 198.815, 201.256 )
-
 [node name="Teleporter3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 46.6538, 276.424 )
 teleport_to = "Teleporter2"
@@ -90,8 +42,17 @@ position = Vector2( 143.46, 452.542 )
 teleport_to = "Teleporter3"
 is_local = true
 
-[editable path="Ladder"]
+[node name="Ladders" type="Node" parent="."]
 
-[editable path="Ladder2"]
+[node name="Ladder" parent="Ladders" instance=ExtResource( 6 )]
+position = Vector2( 391.982, 64.6024 )
+ladder_size = 6
 
-[editable path="Ladder3"]
+[node name="Ladder2" parent="Ladders" instance=ExtResource( 6 )]
+position = Vector2( 200.134, 80 )
+ladder_size = 11
+
+[node name="Ladder3" parent="Ladders" instance=ExtResource( 6 )]
+position = Vector2( 120.114, 97.5377 )
+platform_type = 0
+ladder_size = 8

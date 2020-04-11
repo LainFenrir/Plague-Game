@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://src/Objects/Items/Item.gd"
+"path": "res://src/Resources/Item.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -43,16 +43,6 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://src/Systems/StateMachine/StateMachine.gd"
-}, {
-"base": "Reference",
-"class": "WAT",
-"language": "GDScript",
-"path": "res://addons/WAT/runner/namespace.gd"
-}, {
-"base": "Node",
-"class": "WATTest",
-"language": "GDScript",
-"path": "res://addons/WAT/runner/test.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -61,9 +51,7 @@ _global_script_class_icons={
 "Player": "",
 "PlayerState": "",
 "State": "",
-"StateMachine": "",
-"WAT": "",
-"WATTest": ""
+"StateMachine": ""
 }
 
 [application]
@@ -166,6 +154,7 @@ attack={
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
 
 [tiled_importer]
 

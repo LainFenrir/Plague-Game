@@ -1,44 +1,41 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Objects/Ladder/Ladder.gd" type="Script" id=1]
+[ext_resource path="res://assets/CollisionShapes/Ladders/ladder6_tiles.tres" type="Shape2D" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 82.9705 )
+extents = Vector2( 7.98022, 0.581305 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7.98022, 0.746986 )
-
-[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2.11975, 1.26756 )
 
 [node name="Ladder" type="Node2D"]
 script = ExtResource( 1 )
+ladder_size = "6 tiles"
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2( 199.983, 161.92 )
-shape = SubResource( 1 )
+position = Vector2( 0, 41 )
+shape = ExtResource( 2 )
 
-[node name="Plataform" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="."]
 collision_layer = 8
 collision_mask = 17
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataform"]
-position = Vector2( 199.983, 80.7659 )
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 199.983, 244.023 )
 
 [node name="DropArea" type="Area2D" parent="."]
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
-position = Vector2( 199.983, 246.514 )
-shape = SubResource( 3 )
+position = Vector2( 0, 87 )
+shape = SubResource( 2 )
 [connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_body_exited"]
 [connection signal="body_entered" from="DropArea" to="." method="_on_DropArea_body_entered"]
