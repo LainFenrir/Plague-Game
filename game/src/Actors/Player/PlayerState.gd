@@ -1,6 +1,9 @@
 extends State
 class_name PlayerState
 
+#* Base class for all the player states, a way to center things common to all states
+
+
 var states := {
 	run = "Move/Run", 
 	air = "Move/Air", 
@@ -22,9 +25,9 @@ var interactable_object : String
 func _ready() -> void:
 	yield(owner, "ready")
 	_parent = get_parent() as State
-	Signals.connect("can_interact", self, "set_is_interactable")
-	Signals.connect("can_climb", self, "set_can_climb")
-	Signals.connect("will_drop", self, "set_will_drop")
+	Signals.connect(Signals.CAN_INTERACT, self, "set_is_interactable")
+	Signals.connect(Signals.CAN_CLIMB, self, "set_can_climb")
+	Signals.connect(Signals.WILL_DROP, self, "set_will_drop")
 
 
 #### Signals ####

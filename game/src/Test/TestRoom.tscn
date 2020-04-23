@@ -26,6 +26,7 @@ z_index = 1
 ] instance=ExtResource( 4 )]
 position = Vector2( 332.643, 71.354 )
 collision_layer = 4
+reset_action = false
 
 [node name="Ladders" type="Node" parent="."]
 

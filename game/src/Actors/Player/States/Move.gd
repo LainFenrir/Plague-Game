@@ -1,5 +1,6 @@
 extends PlayerState
-# Move parent state for movement states[Idle,Run,Air,Climb]
+#* Move parent state for movement states[Idle,Run,Air,Climb]
+#* general class that has common functions used by all classes that deal with movement
 
 const FLOOR_NORMAL = Vector2.UP
 

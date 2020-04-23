@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Action",
-"language": "GDScript",
-"path": "res://src/Systems/Interact/Action.gd"
-}, {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
@@ -45,7 +40,6 @@ _global_script_classes=[ {
 "path": "res://src/Systems/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"Action": "",
 "Interactable": "",
 "Item": "",
 "Player": "",

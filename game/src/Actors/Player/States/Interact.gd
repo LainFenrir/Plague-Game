@@ -2,8 +2,6 @@ extends PlayerState
 # Interact state responsible for all interactions
 
 ######### Interface Methods #########
-
-
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel"):
 		_state_machine.transition_to(states.idle)
@@ -19,8 +17,8 @@ func process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	Signals.connect("interaction_finished", self, "finish_interaction")
-	Signals.emit_signal("interaction_start",interactable_object)
+	Signals.connect(Signals.INTERACTION_FINISHED, self, "finish_interaction")
+	Signals.emit_signal(Signals.INTERACTION_START,interactable_object)
 	pass
 
 

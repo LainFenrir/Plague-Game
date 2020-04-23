@@ -1,18 +1,28 @@
 tool
 extends Node2D
 
+#* ...
+
+#### Scene Nodes ####
 onready var collision_area = $'Area/CollisionShape2D'
 onready var drop_area = $'DropArea'
 onready var pos_node = $'Position2D'
-onready var plataform = $'Plataform'
-onready var platform_collision = $'Plataform/CollisionShape2D'
+onready var plataform = $'Platform'
+onready var platform_collision = $'Platform/CollisionShape2D'
 
+#### Constants ####
+const AREA_COLLISION_PATH := 'Area/CollisionShape2D'
+const DROP_COLLISION_PATH := 'DropArea/CollisionShape2D'
+const PLATFORM_PATH := 'Platform'
+const PLATFORM_COLLISION_PATH := 'Platform/CollisionShape2D'
+
+#### Enums ####
 enum PlatformType { NO_PLATFORM, HAS_PLATFORM }
 export (PlatformType) var platform_type = PlatformType.HAS_PLATFORM setget set_plataform_type
 
 enum LadderSize { _6_TILES = 6, _8_TILES = 8, _11_TILES = 11, _16_TILES = 16, _24_TILES = 24 }
-
 export (LadderSize) var ladder_size = LadderSize._6_TILES setget set_lader_size
+
 var ladders_sizes := {
 	6:{
 		"collisionPath": "res://assets/CollisionShapes/Ladders/ladder6_tiles.tres",
@@ -41,16 +51,15 @@ var ladders_sizes := {
 	}
 }
 
+##### Engine Functions ####
 
 func _ready() -> void:
 	set_plataform_type(platform_type)
 	set_lader_size(ladder_size)
 	pass
 
-
-func _process(delta: float) -> void:
-	pass
-
+#TODO: use offset to set dropArea position
+#####Setters and Getters #####
 
 func set_lader_size(value: int) -> void:
 	ladder_size = value
@@ -60,41 +69,43 @@ func set_lader_size(value: int) -> void:
 	var ladder_position = ladder_resource.get("collisionPosition")
 	var ladder_drop_position = ladder_resource.get("dropAreaPosition")
 
-	if has_node('Area/CollisionShape2D'):
+	if has_node(AREA_COLLISION_PATH):
 		if collision_path != null and ladder_position != null:
-			get_node("Area/CollisionShape2D").shape = load(collision_path)
-			get_node("Area/CollisionShape2D").position = ladder_position
+			get_node(AREA_COLLISION_PATH).shape = load(collision_path)
+			get_node(AREA_COLLISION_PATH).position = ladder_position
 
-	if has_node("DropArea/CollisionShape2D"):
-		get_node("DropArea/CollisionShape2D").position = ladder_drop_position
+	if has_node(DROP_COLLISION_PATH):
+		get_node(DROP_COLLISION_PATH).position = ladder_drop_position
 
 
 func set_plataform_type(value) -> void:
 	platform_type = value
 	match platform_type:
 		PlatformType.NO_PLATFORM:
-			if has_node("Platform/CollisionShape2D"):
-				get_node("Platform").visible = false
-				get_node("Platform/CollisionShape2D").disabled = true
+			if has_node(PLATFORM_COLLISION_PATH):
+				get_node(PLATFORM_PATH).visible = false
+				get_node(PLATFORM_COLLISION_PATH).disabled = true
 		PlatformType.HAS_PLATFORM:
-			if has_node("Platform/CollisionShape2D"):
-				get_node("Platform").visible = true
-				get_node("Platform/CollisionShape2D").disabled = false
+			if has_node(PLATFORM_COLLISION_PATH):
+				get_node(PLATFORM_PATH).visible = true
+				get_node(PLATFORM_COLLISION_PATH).disabled = false
 
+
+#### Signals ####
 
 func _on_body_entered(_body: Node) -> void:
 	var pos = pos_node.global_position
-	Signals.emit_signal("can_climb", true, pos)
+	Signals.emit_signal(Signals.CAN_CLIMB, true, pos)
 
 
 func _on_body_exited(_body: Node) -> void:
 	var pos = pos_node.global_position
-	Signals.emit_signal("can_climb", false, pos)
+	Signals.emit_signal(Signals.CAN_CLIMB, false, pos)
 
 
 func _on_DropArea_body_entered(_body: Node) -> void:
-	Signals.emit_signal("will_drop", true)
+	Signals.emit_signal(Signals.WILL_DROP, true)
 
 
 func _on_DropArea_body_exited(_body: Node) -> void:
-	Signals.emit_signal("will_drop", false)
+	Signals.emit_signal(Signals.WILL_DROP, false)
