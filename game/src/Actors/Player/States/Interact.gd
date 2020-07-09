@@ -23,6 +23,7 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
+	Signals.disconnect(Signals.INTERACTION_FINISHED, self, "finish_interaction")
 	pass
 
 

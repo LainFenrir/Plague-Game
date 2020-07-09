@@ -7,11 +7,13 @@ export var is_local := false
 
 ##### Signals ####
 func _on_body_entered(body: Player) -> void:
+	print("entered")
 	body_entered() 
 	pass
 
 
 func _on_body_exited(body: Player) -> void:
+	print("out")
 	body_exited()
 	pass
 

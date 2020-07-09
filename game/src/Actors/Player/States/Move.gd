@@ -1,5 +1,5 @@
 extends PlayerState
-#* Move parent state for movement states[Idle,Run,Air,Climb]
+#* Move parent state for movement states[Idle,Run,Air,Climb,Stagger]
 #* general class that has common functions used by all classes that deal with movement
 
 const FLOOR_NORMAL = Vector2.UP
@@ -16,11 +16,13 @@ func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_interactable and owner.is_on_floor():
 		_state_machine.transition_to(states.interact)
 	self.check_climb_input(event)
+	pass
 
 
 func physics_process(delta: float) -> void:
 	self.flip_sprite()
 	owner.velocity = self.move_with_gravity(delta, owner.velocity)
+	pass
 
 
 func process(delta: float) -> void:
@@ -69,6 +71,7 @@ func flip_sprite() -> void:
 		owner.get_node("Sprite").flip_h = true
 	elif direction == 1:
 		owner.get_node("Sprite").flip_h = false
+	pass
 
 
 func check_climb_input(event:InputEvent):
@@ -77,4 +80,4 @@ func check_climb_input(event:InputEvent):
 			_state_machine.transition_to(states.climb)
 		if event.is_action_pressed("move_up") and not owner.ray_plataform.is_colliding():
 			_state_machine.transition_to(states.climb)
-
+	pass

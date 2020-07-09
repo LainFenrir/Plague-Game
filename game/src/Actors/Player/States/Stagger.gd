@@ -1,4 +1,5 @@
 extends PlayerState
+#* Stagger is responsible for the player knockback when on contact with an enemy or hazard
 
 #### Interface Methods ####
 func unhandled_input(event: InputEvent) -> void:

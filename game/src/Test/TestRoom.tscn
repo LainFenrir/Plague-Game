@@ -32,9 +32,12 @@ reset_action = false
 
 [node name="Ladder" parent="Ladders" instance=ExtResource( 6 )]
 position = Vector2( 391.982, 64.6024 )
+platform_type = 1
+ladder_size = 6
 
 [node name="Ladder2" parent="Ladders" instance=ExtResource( 6 )]
 position = Vector2( 200.134, 80.7361 )
+platform_type = 1
 ladder_size = 11
 
 [node name="Ladder3" parent="Ladders" instance=ExtResource( 6 )]

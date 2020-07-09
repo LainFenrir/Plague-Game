@@ -34,6 +34,7 @@ func _ready() -> void:
 func set_is_interactable(value: bool,object_name:String):
 	is_interactable = value
 	interactable_object = object_name
+	print(interactable_object)
 
 	
 func set_can_climb(value: bool,pos: Vector2):
